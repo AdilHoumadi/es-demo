@@ -1,0 +1,8 @@
+{
+  "require": {
+    "php": "^5.6 || ^7.0",
+    "fzaninotto/faker": "^1.6.0",
+    "ruflin/elastica": "^5.1.0",
+    "alister/faker-extensions": "^1.0.1"
+  }
+}

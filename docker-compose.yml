@@ -1,0 +1,26 @@
+app:
+  restart: 'yes'
+  image: php:7
+  command: php -S 0.0.0.0:8000 /app/index.php
+  links:
+    - elasticsearch
+  ports:
+    - "8000:8000"
+  volumes:
+    - .:/app
+
+composer:
+  restart: 'no'
+  image: composer/composer:php7
+  command: update
+  volumes:
+    - .:/app
+
+elasticsearch:
+  image: docker.elastic.co/elasticsearch/elasticsearch:5.3.0
+  ports:
+    - "9200:9200"
+    - "9300:9300"
+  environment:
+    - "http.host=0.0.0.0"
+    - "transport.host=127.0.0.1"
